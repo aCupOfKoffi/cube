@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --rad: 20px;
+    list-style: none;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+    overflow: hidden;
+    cursor: none;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    /* margin: 200px auto; */
+    width: 500px;;
+    height: 200px;
+    perspective: 500px;
+  }
+  
+  .cube {
+    /* position: absolute; */
+    width: calc(var(--rad) * 2);
+    height: calc(var(--rad) * 2);
+    transform-style: preserve-3d;
+    /* animation: cube_rotate 10s linear infinite; */
+    margin: 20px;
+  }
+
+  .cubeTwo {
+    transform: rotateX(45deg) rotateY(45deg);
+  }
+  
+  .side {
+    position: absolute;
+    width: calc(var(--rad) * 2);
+    height: calc(var(--rad) * 2);
+    /* border: 2px solid #000; */
+    /* border-radius: 15px; */
+    text-align: center;
+    line-height: 300px;
+    color: white;
+    /* background-color: #fff; */
+    /* animation: cube_corners 3s ease-in-out infinite; */
+    /* z-index: 1; */
+  }
+  
+  .front {
+    transform: translateZ(var(--rad));
+    z-index: 3;
+
+  }
+
+  .siding {
+    background-image: url(img/side_grass.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .back {
+    transform: rotateY(180deg) translateZ(var(--rad));
+    z-index: 1;
+  }
+  
+  .top {
+    transform: rotateX(90deg) translateZ(var(--rad));
+    z-index: 2;
+    background-image: url(img/top_grass.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .bottom {
+    transform: rotateX(-90deg) translateZ(var(--rad));
+    z-index: 2;
+    background-image: url(img/bottom_grass.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .right {
+    transform: rotateY(90deg) translateZ(var(--rad));
+    z-index: 2;
+
+  }
+  
+  .left {
+    transform: rotateY(-90deg) translateZ(var(--rad));
+    z-index: 2;
+
+  }
+
+  /* @keyframes cube_rotate {
+    0% {
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+    100% {
+        transform: rotateY(360deg) rotateX(360deg);
+    }
+  } */
+
+  @keyframes cube_corners {
+    0% {
+        border-radius: 0px;
+    }
+    50% {
+        border-radius: 50%;
+    }
+  }
